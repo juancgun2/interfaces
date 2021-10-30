@@ -17,8 +17,8 @@ class Obstacle  {
 
     /**
      * @param name is the HTML element
-     * @param positionX left
-     * @param positionY top
+     * @param positionX => To Define
+     * @param positionY => To Define
      * @param height of the box
      * @param width of the box
      */
@@ -72,7 +72,8 @@ class Obstacle  {
     }
 
     /**
-     * @returns amount of rewards
+     * @return value indicating if the object
+     * is a character killer
      */
     getValue() {
         return this.value;
@@ -82,10 +83,6 @@ class Obstacle  {
         this.value = value;
     }
 
-    /**
-     * @return value indicating if the object
-     * is a character killer
-     */
     getIsKiller() {
         return this.isKiller;
     }

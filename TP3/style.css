@@ -163,8 +163,8 @@ body {
 }
 
 @keyframes scroll { 
-    0% { background-position: 0; }
-    100% { background-position: -1944px; }
+    0% { background-position: 0px}
+    100% { background-position: -1944px;}
 }
 
 /* OBSTACLES */
@@ -282,4 +282,8 @@ body {
     100% {
         transform: scale(1,1);
     }
+}
+
+.animationNone { 
+    animation: none !important;
 }

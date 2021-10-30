@@ -4,6 +4,8 @@ let amountOfDollars = document.getElementById("amountDollars");
 let gameLoop = 0;
 
 class Game {
+    static layers = document.querySelectorAll(".layer");
+    
     constructor() {
         this.obstacles = [];
         this.frameRate = 500;
@@ -132,10 +134,10 @@ class Game {
     beforePlay () {
         document.getElementById("customize").classList.add("dontShow");
         let aux = Array();
-        aux.push( batman );
-        aux.push( joker );
-        aux.push( dolarJoker );
-        aux.push( dolar );
+        aux.push( document.getElementById("character") );
+        aux.push( document.getElementById("joker") );
+        aux.push( document.getElementById("dolarJoker") );
+        aux.push( document.getElementById("dolar") );
         aux.forEach( e => {
             e.classList.remove("dontShow");
         });
@@ -160,6 +162,7 @@ class Game {
         containerChrometer.classList.remove("scale");
         batman.classList.remove("die");
         batman.classList.remove("won");
+        Game.startParallax();
     }
 
     showWinner () { 
@@ -205,6 +208,7 @@ class Game {
         dolar.classList.add( "dontShow" );
         dolarJoker.classList.add("dontShow");
         batman.classList.add("won");
+        Game.stopParallax();
     }
 
     gameOver () { 
@@ -215,12 +219,25 @@ class Game {
         dolar.classList.add( "dontShow" );
         dolarJoker.classList.add( "dontShow" );
         batman.classList.add("die");
+        Game.stopParallax();
     }
 
     startMovement() { 
         joker.classList.add("move");
         dolar.classList.add("move");
         dolarJoker.classList.add("move");
+    }
+
+    static stopParallax () { 
+        Game.layers.forEach( layer => { 
+            layer.style.animationPlayState = 'paused';
+        });
+    }
+
+    static startParallax () { 
+        Game.layers.forEach( layer => { 
+            layer.style.animationPlayState = 'running';
+        });
     }
 }
 
